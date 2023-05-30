@@ -2,12 +2,11 @@
     @section('content')
         <div class="card card-primary m-5">
             <div class="card-header">
-                <h3 class="card-title">Add Room</h3>
+                <h3 class="card-title">Edit Room</h3>
             </div>
-
             <form method="POST">
                 @csrf
-                @method('put')
+                @method('PUT')
                 <div class="card-body">
                     <div class="form-group">
                         <div class="row">
@@ -22,7 +21,7 @@
                                 <div class="form-group">
                                     <label>Room type</label>
                                     <select name="type" id="status" class="custom-select">
-                                        <option>Select Room type</option>
+                                        {{-- <option>Select Room type</option> --}}
                                         @foreach ($types as $key => $type)
                                             <option value="{{ $key }}" {{ $room->type == $key ? 'selected' : '' }}>
                                                 {{ $type }}</option>
@@ -62,9 +61,9 @@
                         </div>
                         <div class="col-6">
                             <div class="form-group">
-                                <label for="status"> Status</label>
+                                <label for="status">Room Status</label>
                                 <select name="status" class="custom-select">
-                                    <option>Status</option>
+                                    {{-- <option>Status</option> --}}
                                     @foreach ($statuses as $key => $status)
                                         <option value="{{$key}}" {{ $room->status == $key ? 'selected' : '' }}>{{$status}}</option>
                                     @endforeach

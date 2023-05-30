@@ -58,9 +58,9 @@ class RoomController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(Room $room)
+    public function edit(Room $roomID)
     {
-        $room = Room::find($room->id);
+        $room = Room::find($roomID->id);
         $types = Room::roomTypes;
         $statuses = Room::roomStatus;
         return view('admin.room.edit', compact('room', 'types', 'statuses'));

@@ -4,7 +4,6 @@
             <div class="card-header">
                 <h3 class="card-title">Add Room</h3>
             </div>
-
             <form method="POST">
                 @csrf
                 <div class="card-body">
@@ -21,7 +20,7 @@
                                 <div class="form-group">
                                     <label>Room type</label>
                                     <select name="type" id="status" class="custom-select">
-                                        <option>Select Room type</option>
+                                        <option hidden>Select Room type</option>
                                         @foreach ($types as $key => $type)
                                             <option value="{{ $key }}">
                                                 {{ $type }}</option>
@@ -58,9 +57,9 @@
                         </div>
                         <div class="col-6">
                             <div class="form-group">
-                                <label for="status"> Status</label>
+                                <label for="status">Room Status</label>
                                 <select name="status" class="custom-select">
-                                    <option>Status</option>
+                                    <option hidden>Status</option>
                                     @foreach ($statuses as $key => $status)
                                         <option value="{{ $key }}">
                                             {{ $status }}</option>

@@ -35,7 +35,7 @@ Route::middleware(['auth'])->group(function () {
         Route::prefix('/room')->group(function () {
             Route::get('/add', [RoomController::class, 'create'])->name('room.create');
             Route::post('/add', [RoomController::class, 'store'])->name('room.store');
-            Route::get('/{room}/edit', [RoomController::class, 'edit'])->name('room.edit');
+            Route::get('/{roomID}/edit', [RoomController::class, 'edit'])->name('room.edit');
             Route::put('/{room}/edit', [RoomController::class, 'update'])->name('room.update');
             Route::delete('/{room}/delete', [RoomController::class, 'destroy'])->name('room.delete');
         });

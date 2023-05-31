@@ -5,26 +5,28 @@
         <p>Dashboard</p>
     </a>
 </li>
-<li class="nav-item">
-    <a href="#" class="nav-link {{ Request::is('rooms') ? 'active' : '' }}">
-        <i class="nav-icon fas fa-bed"></i>
-        <p>
-            Rooms
-            <i class="right fas fa-angle-left"></i>
-        </p>
-    </a>
-    <ul class="nav nav-treeview" style="display: none;">
-        <li class="nav-item">
-            <a href="{{ route('room.index') }}" class="nav-link  {{ Request::is('room.index') ? 'active' : '' }}">
-                <i class="fas fa-list nav-icon"></i>
-                <p>All Rooms</p>
-            </a>
-        </li>
-        <li class="nav-item">
-            <a href="{{ route('room.create') }}" class="nav-link  {{ Request::is('room.create') ? 'active' : '' }}">
-                <i class="fas fa-folder-plus nav-icon"></i>
-                <p>Add Room</p>
-            </a>
-        </li>
-    </ul>
-</li>
+@can('rooms')
+    <li class="nav-item">
+        <a href="#" class="nav-link {{ Request::is('rooms') ? 'active' : '' }}">
+            <i class="nav-icon fas fa-bed"></i>
+            <p>
+                Rooms
+                <i class="right fas fa-angle-left"></i>
+            </p>
+        </a>
+        <ul class="nav nav-treeview" style="display: none;">
+            <li class="nav-item">
+                <a href="{{ route('room.index') }}" class="nav-link  {{ Request::is('room.index') ? 'active' : '' }}">
+                    <i class="fas fa-list nav-icon"></i>
+                    <p>All Rooms</p>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a href="{{ route('room.create') }}" class="nav-link  {{ Request::is('room.create') ? 'active' : '' }}">
+                    <i class="fas fa-folder-plus nav-icon"></i>
+                    <p>Add Room</p>
+                </a>
+            </li>
+        </ul>
+    </li>
+@endcan

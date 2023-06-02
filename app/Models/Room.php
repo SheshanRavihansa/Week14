@@ -17,6 +17,7 @@ class Room extends Model
         'occupancy',
         'price_per_hour',
         'status',
+        'image'
     ];
 
     // public $roomTypes = [

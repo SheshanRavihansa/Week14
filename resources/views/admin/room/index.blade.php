@@ -53,7 +53,7 @@
                     </div>
                     <form method="post" id="deleteForm">
                         @csrf
-                        @method('DELETE')
+                        @method('DELETE ')
                         <div class="modal-body">
                             Are you sure?
                         </div>

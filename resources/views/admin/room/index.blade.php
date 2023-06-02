@@ -53,7 +53,7 @@
                     </div>
                     <form method="post" id="deleteForm">
                         @csrf
-                        @method('DELETE ')
+                        @method('DELETE')
                         <div class="modal-body">
                             Are you sure?
                         </div>
@@ -65,15 +65,14 @@
                 </div>
             </div>
         </div>
-
     @endsection
     @section('scripts')
         <script>
             let table = new DataTable('#rooms');
-            
-            $('.delete-btn').on('click', function(){
+
+            $('.delete-btn').on('click', function() {
                 let room_id = $(this).data('room_id');
-                $('#deleteForm').attr('action', '/dashboard/room/'+room_id+'/delete');
+                $('#deleteForm').attr('action', '/dashboard/room/' + room_id + '/delete');
             })
         </script>
     @endsection

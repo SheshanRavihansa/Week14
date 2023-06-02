@@ -1,0 +1,21 @@
+.drop-img-preview{
+    position: relative;
+}
+
+.drop-img-preview .remove-btn {
+    background-color: #007bff;
+    border-radius: 50%;
+    font-size: 20px;
+    text-align: center;
+    border: none;
+    width: 28px;
+    height: 28px;
+    position: absolute;
+    z-index: 99;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    top: -10px;
+    right: -10px;
+    color: aliceblue;
+}

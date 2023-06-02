@@ -69,7 +69,7 @@
                         </div>
                     </div>
                     <div class="row">
-                        <div class="col-6">
+                        <div class="col-4">
                             <div class="form-group">
                                 <label>Image</label>
                                 <div id="roomImageDrop" class="dropzone"></div>
@@ -83,35 +83,35 @@
                 </div>
             </form>
         </div>
-        @push('css')
-            <link rel="stylesheet" href="https://unpkg.com/dropzone@5/dist/min/dropzone.min.css" type="text/css" />
-        @endpush
-        @push('scripts')
-            <script src="https://unpkg.com/dropzone@5/dist/min/dropzone.min.js"></script>
-            <script>
-                Dropzone.autoDiscover = false;
-                let myDropzone = new Dropzone("#roomImageDrop", {
-                    url: "{{ route('room.image.upload') }}",
-                    maxFilesize: 3,
-                    acceptedFiles: 'image/jpeg,png,jpg,gif,svg',
-                    paramName: 'image',
-                    init: function() {
-                        this.on('sending', function(file, xhr, formData) {
-                            formData.append('_token', '{{ csrf_token() }}');
-                        });
-                        this.on('success', function(file, response) {
-                            console.log(response);
-                            if (response.status) {
-                                $('#image').val(response.image);
-                                notyf.success('Image uploaded successfully')
-                            } 
-                            else {
-                                notyf.error('Image upload failed')
-                            }
-                        });
-                    }
-                });
-            </script>
-        @endpush
     @endsection
+
+    @push('css')
+        <link rel="stylesheet" href="https://unpkg.com/dropzone@5/dist/min/dropzone.min.css" type="text/css" />
+    @endpush
+    @push('scripts')
+        <script src="https://unpkg.com/dropzone@5/dist/min/dropzone.min.js"></script>
+        <script>
+            Dropzone.autoDiscover = false;
+            let myDropzone = new Dropzone("#roomImageDrop", {
+                url: "{{ route('room.image.upload') }}",
+                maxFilesize: 3,
+                acceptedFiles: 'image/*',
+                paramName: 'image',
+                init: function() {
+                    this.on('sending', function(file, xhr, formData) {
+                        formData.append('_token', '{{ csrf_token() }}');
+                    });
+                    this.on('success', function(file, response) {
+                        console.log(response);
+                        if (response.status) {
+                            $('#image').val(response.image);
+                            notyf.success('Image uploaded successfully')
+                        } else {
+                            notyf.error('Image upload failed')
+                        }
+                    });
+                }
+            });
+        </script>
+    @endpush
 </x-app-layout>

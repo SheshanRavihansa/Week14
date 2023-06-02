@@ -18,8 +18,10 @@ class PermissionSeeder extends Seeder
         $admin = Role::create(['name' => 'admin']);
         $user = Role::create(['name' => 'user']);
 
-        $permission = Permission::create(['name' => 'rooms']);
+        $permissionR = Permission::create(['name' => 'rooms']);
+        $permissionV = Permission::create(['name' => 'visit']);
         
-        $admin->givePermissionTo($permission);
+        $admin->givePermissionTo($permissionR, $permissionV);
+        $user->givePermissionTo($permissionV);
     }
 }
